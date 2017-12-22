@@ -1,0 +1,78 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 57e9c3f7c2d57f26e07465ff2c2ee1c8eab9455e2b3b24af09d342b213157647
+
+name:           realworld-servant
+version:        0.1.0.0
+category:       Web
+homepage:       https://github.com/lpil/realworld-servant#readme
+bug-reports:    https://github.com/lpil/realworld-servant/issues
+author:         Louis Pilfold
+maintainer:     louis@lpil.uk
+copyright:      2017 Louis Pilfold
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/lpil/realworld-servant
+
+library
+  hs-source-dirs:
+      src
+  default-extensions: OverloadedStrings
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , here
+    , servant-server
+  exposed-modules:
+      Business.User
+      Lib
+  other-modules:
+      Paths_realworld_servant
+  default-language: Haskell2010
+
+executable realworld-servant
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  default-extensions: OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base
+    , here
+    , realworld-servant
+    , servant-server
+    , wai
+    , warp
+  other-modules:
+      Paths_realworld_servant
+  default-language: Haskell2010
+
+test-suite realworld-servant-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  default-extensions: OverloadedStrings
+  build-depends:
+      aeson
+    , base
+    , here
+    , hspec
+    , hspec-wai
+    , hspec-wai-json
+    , realworld-servant
+    , servant-server
+  other-modules:
+      Paths_realworld_servant
+  default-language: Haskell2010
